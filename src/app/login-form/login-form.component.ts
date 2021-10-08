@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Hero } from '../hero';
+import { LoginModel } from '../models/login-model';
 
 @Component({
   selector: 'app-login-form',
@@ -10,7 +10,15 @@ import { Hero } from '../hero';
 export class LoginFormComponent {
   powers = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
 
-  model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
+  model = new LoginModel(
+    'testNickmane',
+    'test@email.com',
+    'Male',
+    'Paul',
+    'Walker',
+    '123test',
+    'Chuck Overstreet'
+  );
 
   submitted = false;
 
@@ -19,18 +27,21 @@ export class LoginFormComponent {
   }
 
   newHero() {
-    this.model = new Hero(42, '', '');
+    this.model = new LoginModel('', '', '', '', '', '', '');
   }
 
-  skyDog(): Hero {
-    const myHero = new Hero(
-      42,
-      'SkyDog',
-      'Fetch any object at any distance',
+  skyDog(): LoginModel {
+    const myLogin = new LoginModel(
+      'dog',
+      'skyDog@email.com',
+      'Male',
+      'Sky',
+      'Dog',
+      'password',
       'Leslie Rollover'
     );
-    console.log('My hero is called ' + myHero.name); // "My hero is called SkyDog"
-    return myHero;
+    console.log('Your username is ' + myLogin.userName);
+    return myLogin;
   }
 
   //////// NOT SHOWN IN DOCS ////////
